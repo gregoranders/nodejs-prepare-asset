@@ -1,0 +1,18 @@
+name: 'NodeJS Prepare Asset'
+description: 'Provides asset path and name'
+author: 'Gregor Anders <gregor.ander@gmail.com>'
+inputs:
+  path:
+    description: 'Path to directory containing asset'
+    required: true
+outputs:
+  name:
+    description: 'Asset name'
+  path:
+    description: 'Asset path'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: 'package'
+  color: 'red'
