@@ -1,6 +1,6 @@
 {
   "name": "nodejs-prepare-asset",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "NodeJS Prepare Asset",
   "main": "./dist/index.js",
   "scripts": {
