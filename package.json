@@ -1,0 +1,121 @@
+{
+  "name": "nodejs-prepare-asset",
+  "version": "0.0.1",
+  "description": "NodeJS Prepare Asset",
+  "main": "./dist/index.js",
+  "scripts": {
+    "clear": "rimraf ./node_modules ./dist ./test ./package-lock.json",
+    "prestart": "npm run build",
+    "start": "node ./dist/index.js",
+    "prebuild": "tsc --noEmit --project ./ && eslint ./src/**/*.ts --quiet --fix",
+    "build": "ncc build ./src/index.ts -m -o ./dist/",
+    "pretest": "rimraf ./coverage",
+    "test": "jest",
+    "watch": "tsc -w --project ./",
+    "prepare": "npm test && npm run build",
+    "codeclimate": "docker run --interactive --tty --rm --env CODECLIMATE_CODE=\"$PWD\" --volume \"$PWD\":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze",
+    "changelog": "changelog"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gregoranders/nodejs-prepare-asset.git"
+  },
+  "keywords": [
+    "jest",
+    "eslint",
+    "typescript"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run prepare",
+      "pre-push": "npm run test"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --ext .ts ./src"
+    ]
+  },
+  "jest-html-reporter": {
+    "pageTitle": "nodejs-prepare-asset",
+    "outputPath": "<rootDir>/test/index.html"
+  },
+  "jest-junit": {
+    "outputDirectory": "<rootDir>/test"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "<rootDir>/test/coverage",
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.ts",
+      "!<rootDir>/node_modules/**",
+      "!<rootDir>/dist/**",
+      "!<rootDir>/temp/**",
+      "!<rootDir>/test/**",
+      "!<rootDir>/src/**/index.ts",
+      "!<rootDir>/src/fixtures/**"
+    ],
+    "coverageReporters": [
+      "lcovonly",
+      "html",
+      "text",
+      "text-summary"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "reporters": [
+      "jest-html-reporter",
+      "jest-spec-reporter",
+      "jest-junit"
+    ],
+    "transform": {
+      "\\.ts$": "ts-jest"
+    },
+    "testRegex": "/src/.*\\.spec\\.ts$"
+  },
+  "author": "Gregor Anders <gregor.anders@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gregoranders/nodejs-prepare-asset/issues"
+  },
+  "homepage": "https://gregoranders.github.io/nodejs-prepare-asset/",
+  "dependencies": {
+    "@actions/core": "1.2.4"
+  },
+  "devDependencies": {
+    "@types/jest": "26.0.10",
+    "@types/node": "14.6.0",
+    "@typescript-eslint/eslint-plugin": "3.9.1",
+    "@typescript-eslint/parser": "3.9.1",
+    "@zeit/ncc": "0.22.3",
+    "generate-changelog": "1.8.0",
+    "eslint": "7.7.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-jest": "23.20.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-unicorn": "21.0.0",
+    "husky": "4.2.5",
+    "jest": "26.4.0",
+    "jest-cli": "26.4.0",
+    "jest-html-reporter": "3.1.3",
+    "jest-junit": "11.1.0",
+    "jest-spec-reporter": "1.0.14",
+    "lint-staged": "10.2.11",
+    "prettier": "2.0.5",
+    "rimraf": "3.0.2",
+    "ts-jest": "26.2.0",
+    "ts-node": "8.10.2",
+    "typescript": "3.9.7"
+  }
+}
