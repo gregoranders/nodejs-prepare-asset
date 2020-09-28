@@ -91,7 +91,7 @@
   },
   "homepage": "https://gregoranders.github.io/nodejs-prepare-asset/",
   "dependencies": {
-    "@actions/core": "1.2.4"
+    "@actions/core": "1.2.6"
   },
   "devDependencies": {
     "@types/jest": "26.0.10",
