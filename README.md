@@ -37,7 +37,7 @@ This action provides the _name_ and _path_ of a single file in a directory, so y
         target: ${{ github.ref }}
     - name: nodejs prepare asset
       id: prepareasset
-      uses: gregoranders/nodejs-prepare-asset@v0.0.13
+      uses: gregoranders/nodejs-prepare-asset@v0.0.14
       with:
         path: dist
     - name: upload asset
