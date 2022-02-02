@@ -85,7 +85,7 @@
   },
   "homepage": "https://gregoranders.github.io/nodejs-prepare-asset/",
   "dependencies": {
-    "@actions/core": "1.2.4"
+    "@actions/core": "1.6.0"
   },
   "devDependencies": {
     "@commitlint/cli": "16.1.0",
