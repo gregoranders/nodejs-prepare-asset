@@ -2,7 +2,7 @@
 
 ## [GitHub Action](https://github.com/features/actions) written in [TypeScript](http://www.typescriptlang.org/)
 
-### Prepare asset for upload - [GitHub Action](https://github.com/features/actions).
+### Prepare asset for upload - [GitHub Action](https://github.com/features/actions)
 
 This action provides the _name_ and _path_ of a single file in a directory, so your workflow can access it.
 
