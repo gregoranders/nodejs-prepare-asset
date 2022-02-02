@@ -22,19 +22,19 @@ const actionsCoreMock = jest.mock('@actions/core', () => {
   };
 });
 
-const inputVars: { [key: string]: string } = {};
+const inputVariables: { [key: string]: string } = {};
 
 export const setInput = (name: string, value: string): void => {
-  const varName = `INPUT_${name.toUpperCase()}`;
-  inputVars[varName] = value;
-  process.env[varName] = value;
+  const variableName = `INPUT_${name.toUpperCase()}`;
+  inputVariables[variableName] = value;
+  process.env[variableName] = value;
 };
 
 export const clearTestEnvironment = (): void => {
-  Object.keys(inputVars).forEach((varName) => {
-    Reflect.deleteProperty(process.env, varName);
-    Reflect.deleteProperty(inputVars, varName);
-  });
+  for (const variableName of Object.keys(inputVariables)) {
+    Reflect.deleteProperty(process.env, variableName);
+    Reflect.deleteProperty(inputVariables, variableName);
+  }
   actionsCoreMock.clearAllMocks();
 };
 
@@ -42,7 +42,7 @@ expect.extend({
   // tslint:disable-next-line: object-literal-shorthand space-before-function-paren
   toHaveCoreError: function (recieved: jest.Mock, message: RegExp) {
     const error = setFailedMock.mock.calls.length > 0 ? (setFailedMock.mock.calls[0][0] as Error) : undefined;
-    const pass = error && error.message.match(message) ? true : false;
+    const pass = error && message.test(error.message) ? true : false;
     const options = {
       comment: 'Error.message equality',
       isNot: this.isNot,

@@ -1,6 +1,8 @@
 import * as core from '@actions/core';
 
-import { readdirSync, realpathSync } from 'fs';
+// eslint-disable-next-line prettier/prettier
+import { readdirSync, realpathSync } from 'node:fs';
+// eslint-disable-next-line prettier/prettier
 import { join, resolve } from 'path';
 
 export const run = async () => {
@@ -21,7 +23,7 @@ export const run = async () => {
 
     core.setOutput('name', files[0]);
     core.setOutput('path', join(basePath, files[0]));
-  } catch (error) {
+  } catch (error: Error | any) {
     core.setFailed(error);
   }
 };
