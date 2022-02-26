@@ -1,8 +1,11 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["prettier", "jest", "unicorn", "@typescript-eslint"],
-  "extends": ["plugin:jest/recommended", "plugin:unicorn/recommended", "plugin:prettier/recommended"],
+  "plugins": ["prettier", "jest", "@typescript-eslint"],
+  "extends": [
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended"
+  ],
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module",
@@ -15,6 +18,9 @@
     "jest": true
   },
   "rules": {
+    "quotes": [
+      2, "single", { "avoidEscape": true }
+    ],
     "@typescript-eslint/explicit-module-boundary-types": "off"
   },
   "settings": {}

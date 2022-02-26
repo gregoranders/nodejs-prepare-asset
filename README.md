@@ -1,33 +1,47 @@
-# NodeJS Prepare Asset
+# Node.JS Prepare Asset
 
-## [GitHub Action](https://github.com/features/actions) written in [TypeScript](http://www.typescriptlang.org/)
+## [GitHub Action][github-actions-url] written in [TypeScript][typescript-url]
 
-### Prepare asset for upload - [GitHub Action](https://github.com/features/actions)
+### Create a release on GitHub - [GitHub Action][github-actions-url]
 
 This action provides the _name_ and _path_ of a single file in a directory, so your workflow can access it.
 
 [![License][license-image]][license-url]
 [![Issues][issues-image]][issues-url]
 
-[![Codacy Badge][codacy-imge]][codacy-url][![Code maintainability][code-maintainability-image]][code-maintainability-url] [![Code issues][code-issues-image]][code-issues-url] [![Code Technical Debt][code-tech-debt-image]][code-tech-debt-url]
+[![Code maintainability][code-maintainability-image]][code-maintainability-url]
+[![Code issues][code-issues-image]][code-issues-url]
+[![Code Technical Debt][code-tech-debt-image]][code-tech-debt-url]
 
-[![Main Language][language-image]][code-metric-url] [![Languages][languages-image]][code-metric-url] [![Code Size][code-size-image]][code-metric-url] [![Repo-Size][repo-size-image]][code-metric-url]
+[![Main Language][language-image]][code-metric-url]
+[![Languages][languages-image]][code-metric-url]
+[![Code Size][code-size-image]][code-metric-url]
+[![Repository Size][repo-size-image]][code-metric-url]
 
-|                                                                  |                                                                            | [![Release][release-image]][release-url]                                     |
+## Features
+
+- [TypeScript][typescript-url]
+- [Jest][jest-url] Unit Tests with Code Coverage
+- GitHub CI Integration (feature, development, master, release)
+- Code Quality via [Code Climate](./docs/codeclimate.md)
+
+<!-- lint disable maximum-line-length -->
+| GitHub                                                           | Coveralls                                                                  |                                                                              |
 | ---------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| [![Release Build][release-build-image]][release-url]             |                                                                            | [![Release Version][release-image]][release-url]                             |
 | [![Master Build][master-build-image]][master-url]                | [![Master Coverage][master-coveralls-image]][master-coveralls-url]         | [![Master Version][master-version-image]][master-version-url]                |
 | [![Development Build][development-build-image]][development-url] | [![Test Coverage][development-coveralls-image]][development-coveralls-url] | [![Development Version][development-version-image]][development-version-url] |
-
+<!-- lint enable maximum-line-length -->
 ## Usage
 
 ```YML
     ...
     - name: nodejs project information
       id: projectinfo
-      uses: gregoranders/nodejs-project-info@v0.0.13
+      uses: gregoranders/nodejs-project-info@v0.0.17
     - name: create release action
       id: createrelease
-      uses: gregoranders/nodejs-create-release@v0.0.13
+      uses: gregoranders/nodejs-create-release@v0.0.17
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
@@ -37,12 +51,12 @@ This action provides the _name_ and _path_ of a single file in a directory, so y
         target: ${{ github.ref }}
     - name: nodejs prepare asset
       id: prepareasset
-      uses: gregoranders/nodejs-prepare-asset@v0.0.14
+      uses: gregoranders/nodejs-prepare-asset@v0.0.17
       with:
         path: dist
     - name: upload asset
       id: uploadasset
-      uses: gregoranders/nodejs-upload-asset@v0.0.13
+      uses: gregoranders/nodejs-upload-asset@v0.0.17
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -69,10 +83,7 @@ outputs:
 [release-url]: https://github.com/gregoranders/nodejs-prepare-asset/releases
 [master-url]: https://github.com/gregoranders/nodejs-prepare-asset/tree/master
 [development-url]: https://github.com/gregoranders/nodejs-prepare-asset/tree/development
-[repository-url]: https://github.com/gregoranders/nodejs-prepare-asset
 [code-metric-url]: https://github.com/gregoranders/nodejs-prepare-asset/search?l=TypeScript
-[travis-url]: https://travis-ci.org/gregoranders/nodejs-prepare-asset
-[travis-image]: https://travis-ci.org/gregoranders/nodejs-prepare-asset.svg?branch=master
 [license-url]: https://github.com/gregoranders/nodejs-prepare-asset/blob/master/LICENSE
 [license-image]: https://img.shields.io/github/license/gregoranders/nodejs-prepare-asset.svg
 [master-version-url]: https://github.com/gregoranders/nodejs-prepare-asset/blob/master/package.json
@@ -99,5 +110,6 @@ outputs:
 [languages-image]: https://img.shields.io/github/languages/count/gregoranders/nodejs-prepare-asset
 [code-size-image]: https://img.shields.io/github/languages/code-size/gregoranders/nodejs-prepare-asset
 [repo-size-image]: https://img.shields.io/github/repo-size/gregoranders/nodejs-prepare-asset
-[codacy-imge]: https://app.codacy.com/project/badge/Grade/f67f0f69c2f64cdcb81e8464473ff032
-[codacy-url]: https://www.codacy.com/manual/gregoranders/nodejs-prepare-asset
+[typescript-url]: http://www.typescriptlang.org/
+[jest-url]: https://jestjs.io/
+[github-actions-url]: https://github.com/features/actions
