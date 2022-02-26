@@ -2,8 +2,8 @@ import { clearTestEnvironment, setInput } from './fixtures/test-utils';
 
 import { run as testSubject } from './action';
 
-import { resolve } from 'path';
-import { mkdirSync, rmdirSync } from 'fs';
+import { resolve } from 'node:path';
+import { mkdirSync, rmdirSync } from 'node:fs';
 
 describe('nodejs-prepare-asset', () => {
   const fixturesPath = './src/fixtures/one';
