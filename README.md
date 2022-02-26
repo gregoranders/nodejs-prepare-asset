@@ -2,7 +2,7 @@
 
 ## [GitHub Action][github-actions-url] written in [TypeScript][typescript-url]
 
-### Create a release on GitHub - [GitHub Action][github-actions-url]
+### Prepare asset for upload - [GitHub Action][github-actions-url]
 
 This action provides the _name_ and _path_ of a single file in a directory, so your workflow can access it.
 
