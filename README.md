@@ -38,10 +38,10 @@ This action provides the _name_ and _path_ of a single file in a directory, so y
     ...
     - name: nodejs project information
       id: projectinfo
-      uses: gregoranders/nodejs-project-info@v0.0.19
+      uses: gregoranders/nodejs-project-info@v0.0.20
     - name: create release action
       id: createrelease
-      uses: gregoranders/nodejs-create-release@v0.0.19
+      uses: gregoranders/nodejs-create-release@v0.0.20
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
@@ -51,12 +51,12 @@ This action provides the _name_ and _path_ of a single file in a directory, so y
         target: ${{ github.ref }}
     - name: nodejs prepare asset
       id: prepareasset
-      uses: gregoranders/nodejs-prepare-asset@v0.0.19
+      uses: gregoranders/nodejs-prepare-asset@v0.0.20
       with:
         path: dist
     - name: upload asset
       id: uploadasset
-      uses: gregoranders/nodejs-upload-asset@v0.0.19
+      uses: gregoranders/nodejs-upload-asset@v0.0.20
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
