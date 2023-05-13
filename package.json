@@ -98,8 +98,8 @@
     "@commitlint/config-conventional": "17.4.0",
     "@types/jest": "29.2.5",
     "@types/semver": "7.3.13",
-    "@typescript-eslint/eslint-plugin": "5.47.1",
-    "@typescript-eslint/parser": "5.48.0",
+    "@typescript-eslint/eslint-plugin": "5.58.0",
+    "@typescript-eslint/parser": "5.58.0",
     "@vercel/ncc": "0.36.0",
     "conventional-changelog-cli": "2.2.2",
     "cross-env": "7.0.3",
@@ -148,7 +148,7 @@
     "retext-spell": "5.3.0",
     "retext-syntax-urls": "3.1.2",
     "retext-usage": "0.5.0",
-    "rimraf": "3.0.2",
+    "rimraf": "5.0.0",
     "ts-jest": "29.1.0",
     "typescript": "4.9.4"
   }
